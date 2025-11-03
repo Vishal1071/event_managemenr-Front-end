@@ -1,0 +1,34 @@
+.Contact-tital{
+    width: 80%;
+    float: left;
+    background-color: black;
+    color: white;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    border: 1px rgb(158, 158, 158) solid;
+    position: fixed;
+    z-index: 100;
+}
+.contact-name-No{
+    width: 10%;
+}
+.contact-name{
+    width: 20%;
+}
+
+.contact-name-email{
+    width: 30%;
+}
+.Contact-tital-user{
+    width: 100%;
+    float: left;
+    display: flex;
+    padding: 5px 0px 0px 0px;
+    text-align: center;
+    background: rgb(224, 224, 224);
+    border: 1px solid rgb(255, 255, 255);
+}
+.contactlist-user{
+    padding-top: 42px;
+}

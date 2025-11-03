@@ -1,0 +1,104 @@
+.admin-profile {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  font-family: "Inter", sans-serif;
+}
+
+.admin-profile h3 {
+  font-size: 22px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+.proPic {
+  display: flex;
+  float: left;
+  align-items: center;
+  margin-bottom: 25px;
+  gap: 16px;
+}
+
+.proPic img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #e6e6e6;
+}
+
+.pic-icon {
+  font-size: 22px;
+  cursor: pointer;
+  color: #34a6b5;
+  background:#212121;
+  padding: 3px;
+  border-radius: 50px;
+  position: relative;
+  top: 30px;
+  right: 45px;
+}
+.admin-name-afterpic{
+    width: 20%;
+    float: left;
+    margin: 28px 0 0 -25px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.input-group {
+  margin-bottom: 18px;
+}
+
+.input-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #444;
+  margin-bottom: 6px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 14px;
+  transition: border 0.2s ease;
+  background: #fafafa;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #4a90e2;
+  background: #fff;
+}
+
+.submit button {
+  background: #4a90e2;
+  color: white;
+  border: none;
+  padding: 8px 24px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  margin: 1.5rem 0 0 28rem;
+  transition: background 0.3s;
+  
+}
+
+.submit button:hover {
+  background: #357ab8;
+}
+
+/* Preview text */
+.admin-profile p {
+  margin: 0 0 8px;
+  font-size: 14px;
+  color: #555;
+}

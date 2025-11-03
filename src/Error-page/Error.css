@@ -1,0 +1,73 @@
+/* Background */
+.error-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #1d1d42, #0d0d1a);
+  color: #fff;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+}
+
+/* Glitch effect for 404 */
+.error-glitch h1 {
+  font-size: 10rem;
+  font-weight: 900;
+  position: relative;
+  color: #ff3b3b;
+  animation: glitch 1s infinite;
+  text-shadow: 
+    2px 2px 0 #00fff9, 
+    -2px -2px 0 #ff00c8;
+}
+
+@keyframes glitch {
+  0% { text-shadow: 2px 2px 0 #00fff9, -2px -2px 0 #ff00c8; }
+  20% { text-shadow: -2px 2px 0 #00fff9, 2px -2px 0 #ff00c8; }
+  40% { text-shadow: 2px -2px 0 #00fff9, -2px 2px 0 #ff00c8; }
+  60% { text-shadow: -2px -2px 0 #00fff9, 2px 2px 0 #ff00c8; }
+  80% { text-shadow: 2px 2px 0 #00fff9, -2px -2px 0 #ff00c8; }
+  100% { text-shadow: -2px 2px 0 #00fff9, 2px -2px 0 #ff00c8; }
+}
+
+/* Title */
+.error-title {
+  font-size: 2rem;
+  margin-top: 20px;
+  animation: fadeIn 2s ease-in-out;
+}
+
+/* Message */
+.error-message {
+  font-size: 1.1rem;
+  margin: 10px 0 20px;
+  color: #ccc;
+  animation: fadeIn 2.5s ease-in-out;
+}
+
+/* Button */
+.error-btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background: #ff3b3b;
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+}
+
+.error-btn:hover {
+  background: #ff00c8;
+  transform: scale(1.1);
+  box-shadow: 0px 0px 15px #ff00c8;
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

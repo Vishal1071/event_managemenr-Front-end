@@ -1,0 +1,167 @@
+body{
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.About{
+  width: 100%;
+  background-color: #000000;
+}
+.About::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.bg-img{
+    width: 100%;
+    float: left;
+    background-image: url("/image.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 50vh;
+    margin-bottom: 4rem;
+    
+
+}
+.bg-text{
+    height: 50vh;
+    display: flex;
+    line-height: 0;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+#A-text{
+  color: orange;
+}
+.About-texts{
+  width: 100%;
+  margin: auto;
+
+}
+span{
+  color: orange;    
+}
+
+.About-texts1{
+    width: 30%;
+    float: left;
+    line-height: 0.5;
+    margin: 2rem 0 0 20px;
+}
+.About-texts2{
+    width: 20%;
+    float: left;
+    margin: 0 5rem;
+}
+.cards{
+    width: 100%;
+    float: left;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px; 
+    padding: 2rem 4rem;
+}
+.card{
+    background-color: white;
+    color: hsl(0, 0%, 0%);
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
+    margin-bottom: 2rem;
+}
+.T02{
+    font-size: 13px;
+    padding: 0 35px 10px 35px;
+}
+.T01{
+    padding: 0 3rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+
+
+
+/* ========================
+   About Responsive
+   ======================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .bg-img {
+    height: 40vh;
+  }
+  .bg-text {
+    height: 40vh;
+  }
+
+  .About-texts1,
+  .About-texts2 {
+    width: 45%;
+    float: none;
+    display: inline-block;
+    margin: 1rem 2%;
+    text-align: center;
+  }
+
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 2rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .bg-img {
+    height: 30vh;
+  }
+  .bg-text {
+    height: 30vh;
+    padding: 0 10px;
+    text-align: center;
+  }
+
+  .About-texts1,
+  .About-texts2 {
+    width: 100%;
+    margin: 1rem 0;
+    text-align: center;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 1.5rem;
+  }
+
+  .T01 {
+    font-size: 16px;
+  }
+  .T02 {
+    font-size: 12px;
+    padding: 0 15px 10px 15px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .bg-img {
+    height: 25vh;
+  }
+  .bg-text {
+    height: 25vh;
+    font-size: 14px;
+  }
+
+  .T01 {
+    font-size: 14px;
+    padding: 0 1rem;
+  }
+  .T02 {
+    font-size: 11px;
+    padding: 0 10px;
+  }
+}

@@ -1,0 +1,196 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Top Admin Navbar */
+.admin-navbar {
+  position: fixed;
+  top: 0;
+  left: 20%;
+  width: 80%;
+  float: left;
+  z-index: 1030;
+}
+.admin-navbarrr{
+  height: 9vh;
+}
+
+.admin-search-form {
+  margin: 0 auto;          
+  display: flex;
+  justify-content: center; 
+  width: 50%;              
+}
+
+.admin-search-input {
+  flex: 1;
+  margin-right: 10px;
+}
+
+
+/* Sidebar */
+.admin-sidebar {
+  position: fixed;
+  top: 0; /* navbar height */
+  left: 0;
+  width: 20%;
+  height: calc(100vh);
+  background-color: #212529; /* Bootstrap dark */
+  color: white;
+}
+
+.admin-sidebar-inner {
+  height: 100%;
+  background-color: #212529;
+}
+
+/* Sidebar nav hover */
+.admin-sidebar .nav-link {
+  color: #adb5bd;
+}
+.admin-sidebar .nav-link:hover {
+  color: #fff;
+  background-color: #495057;
+}
+
+.admin-sidebar .nav-link {
+  color: #fff;
+}
+  
+
+/* Main content area */
+.admin-main{
+  margin-left: 252.5px; 
+  margin-top: 68.8px;   
+  background: #f8f9fa;
+  color: #212529;
+  min-height: calc(100vh - 56px);
+}
+
+
+
+/* Responsive CSS */
+
+/* Large screens (default stays same) */
+@media (max-width: 992px) {
+  .admin-navbar {
+    left: 0;
+    width: 100%;
+  }
+  .admin-sidebar {
+    width: 200px;
+  }
+  .admin-main {
+    margin-left: 200px;
+  }
+  .admin-search-form {
+    width: 70%;
+  }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+  .admin-sidebar {
+    transform: translateX(-100%);
+    width: 220px;
+  }
+  .admin-sidebar.active {
+    transform: translateX(0);
+  }
+  .admin-main {
+    margin-left: 0;
+  }
+  .admin-search-form {
+    width: 80%;
+  }
+}
+
+/* Mobiles */
+@media (max-width: 576px) {
+  .admin-navbarrr {
+    height: auto;
+    padding: 10px;
+    flex-direction: column;
+  }
+  .admin-search-form {
+    width: 100%;
+    flex-direction: column;
+  }
+  .admin-search-input {
+    margin: 0 0 8px 0;
+  }
+  .admin-sidebar {
+    width: 180px;
+  }
+  .admin-main {
+    margin-top: 70px;
+  }
+}
+
+
+
+/* ---------- Responsive CSS ---------- */
+
+/* Tablets */
+@media (max-width: 992px) {
+  .admin-navbar {
+    left: 0;
+    width: 100%;
+  }
+  .admin-sidebar {
+    width: 200px;
+  }
+  .admin-main {
+    margin-left: 200px;
+  }
+}
+
+/* Small tablets / landscape phones */
+@media (max-width: 768px) {
+  .admin-sidebar {
+    transform: translateX(-100%);
+    width: 220px;
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    transition: transform 0.3s ease;
+    z-index: 1050;
+  }
+  .admin-sidebar.active {
+    transform: translateX(0);
+  }
+  .admin-main {
+    margin-left: 0;
+  }
+}
+
+/* Mobiles */
+@media (max-width: 576px) {
+  .admin-navbarrr {
+    height: auto;
+    padding: 10px;
+    flex-direction: column;
+  }
+  .admin-search-form {
+    width: 100%;
+    flex-direction: column;
+  }
+  .admin-search-input {
+    margin: 0 0 8px 0;
+  }
+  .admin-sidebar {
+    width: 180px;
+  }
+  .admin-main {
+    margin-top: 70px;
+  }
+  .admin-sidebar .fs-4 {
+    font-size: 1rem;
+  }
+  .admin-sidebar .nav-link {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+}

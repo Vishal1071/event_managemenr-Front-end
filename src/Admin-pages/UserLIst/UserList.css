@@ -1,0 +1,137 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.User-tital{
+    display: flex;
+    width: 80%;
+    float: left;
+    border: 1px rgb(255, 255, 255) solid;
+    position: fixed;
+    z-index: 1000;
+}
+.Profile img{
+    border-radius: 50px;
+}
+
+.no{
+    width: 8%;
+    float: left;
+    text-align: center;
+}
+.NO{
+    width: 13%;
+    float: left;
+    text-align: center;
+}
+.NAEM{
+    width: 22.5%;
+    float: left;
+    text-align: center;
+}
+.UserList-text p{
+    position: relative;
+    top: 5px;
+    font-weight: 700;    
+}
+.UserList-text{
+    background: #000000;
+    color: aliceblue;
+    
+}
+.solid{
+    background-color: #ebebeb;
+    height: 10vh;
+}
+
+.user-info p{
+    position: relative;
+    top: 15px;
+}
+.user-info img{
+    position: relative;
+    top: 5px;
+}
+.Action button{
+    border: none;
+    background: #006a48;
+    color: aliceblue;
+    border-radius: 10px;
+    padding: 5px 10px;
+    margin-top: 8px;
+    transition: all 0.5s ease;
+}
+.Action button:hover{
+    background: #00b57c;
+    color: #000000;
+}
+.user-info{
+    width: 100%;
+    float: left;
+    border: #aeaeae solid 2px;
+}
+.user-list{
+    width: 100%;
+    float: left;
+    margin-top: 41px;
+}
+
+
+
+/* Responsive CSS */
+@media (max-width: 1200px) {
+    .User-tital {
+        width: 100%;
+    }
+    .NO, .NAEM, .no {
+        width: auto;
+        flex: 1;
+    }
+}
+
+@media (max-width: 992px) {
+    .User-tital {
+        flex-wrap: wrap;
+    }
+    .NO, .NAEM, .no {
+        width: 100%;
+        text-align: left;
+        padding: 5px 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .user-info, 
+    .user-list {
+        width: 100%;
+        float: none;
+    }
+    .UserList-text p, 
+    .user-info p {
+        top: 0;
+        font-size: 14px;
+    }
+    .Action button {
+        width: 100%;
+        margin-top: 5px;
+    }
+}
+
+@media (max-width: 576px) {
+    .User-tital {
+        position: relative;
+    }
+    .UserList-text {
+        font-size: 12px;
+        text-align: center;
+    }
+    .user-info img {
+        max-width: 50px;
+        top: 0;
+    }
+    .Action button {
+        font-size: 12px;
+        padding: 5px;
+    }
+}

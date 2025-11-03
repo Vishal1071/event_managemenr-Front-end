@@ -1,0 +1,278 @@
+body {
+  margin: 0;
+  padding: 0;
+  color: aliceblue;
+  font-family: Arial, Helvetica, sans-serif;
+    
+}
+.home {
+  font-family: Arial, sans-serif;
+  color: #333;
+  line-height: 1.6;
+  background-color: #000000;
+  padding-bottom: 1px;
+}
+
+.BGimg {
+  background: url("https://images.unsplash.com/photo-1519741497674-611481863552") no-repeat center center/cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}   
+
+.home-content {
+  max-width: 800px;
+  text-align: center;
+  color: white;
+  background: rgba(0, 0, 0, 0.432);
+  padding: 30px;
+  border-radius: 12px;
+}
+
+.home-text h1 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.home-text p {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.home-input {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.home-input input {
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  width: 250px;
+  outline: none;
+}
+
+.home-input button {
+  background: #ff5722;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.home-input button:hover {
+  background: #e64a19;
+}
+
+.home-request {
+  margin-top: 15px;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.blue-card {
+  background: #001952;
+  color: white;
+  padding: 50px 20px;
+  border-radius: 12px;
+  margin: 40px auto;
+  max-width: 1100px;
+}
+
+.b-text {
+  margin-bottom: 30px;
+}
+
+.yellow-text {
+  background: #f9c74f;
+  color: #000;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+.text12 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.text1 {
+  flex: 1;
+  min-width: 250px;
+}
+
+.hr {
+  border: 2px solid #ff5722;
+  width: 50px;
+  margin-bottom: 10px;
+}
+
+.pink-text {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 40px auto;
+  max-width: 1100px;
+  color: aliceblue;
+}
+
+.pink-text1 {
+  flex: 2;
+}
+
+.pink-text2,
+.pink-text3 {
+  flex: 1;
+}
+
+.pink-text2 h4,
+.pink-text3 p {
+  margin: 10px 0;
+}
+
+.pink-card {
+  background: #ff4081;
+  color: white;
+  padding: 30px;
+  margin: 40px auto;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 900px;
+}
+
+.pink-card-text {
+  max-width: 70%;
+}
+
+.btn button {
+  background: white;
+  color: #ff4081;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn button:hover {
+  background: #f8f8f8;
+}
+
+
+
+
+
+
+/* ========== Responsive CSS ========== */
+
+/* Tablets (≤ 992px) */
+@media (max-width: 992px) {
+  .home-text h1 {
+    font-size: 32px;
+  }
+
+  .home-text p {
+    font-size: 14px;
+  }
+
+  .home-input {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .home-input input {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .blue-card {
+    padding: 40px 15px;
+  }
+
+  .pink-text {
+    flex-direction: column;
+  }
+
+  .pink-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .pink-card-text {
+    max-width: 100%;
+  }
+
+  .btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+/* Mobiles (≤ 600px) */
+@media (max-width: 600px) {
+  .BGimg {
+    height: auto;
+    padding: 60px 15px;
+  }
+
+  .home-content {
+    padding: 20px;
+  }
+
+  .home-text h1 {
+    font-size: 24px;
+  }
+
+  .home-text p {
+    font-size: 13px;
+  }
+
+  .home-input input {
+    width: 100%;
+  }
+
+  .home-input button {
+    width: 100%;
+  }
+
+  .text12 {
+    flex-direction: column;
+  }
+
+  .text1 {
+    min-width: 100%;
+  }
+
+  .pink-text {
+    margin: 20px auto;
+  }
+
+  .pink-card {
+    padding: 20px;
+  }
+
+  .btn button {
+    width: 100%;
+  }
+}
+
+
+
+
+
+
+
+

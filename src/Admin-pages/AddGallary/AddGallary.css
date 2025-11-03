@@ -1,0 +1,61 @@
+
+.post-event-Gallary{
+  max-width: 500px;
+  margin: 20px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+  position: relative;
+  top: 3rem;
+}
+
+.select-category {
+  margin: 15px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Label */
+.select-category label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+/* Dropdown */
+.select-category select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #333;
+  background-color: #fff;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+/* On hover */
+.select-category select:hover {
+  border-color: #888;
+}
+
+/* On focus */
+.select-category select:focus {
+  border-color: #007bff;   /* Bootstrap blue */
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.3);
+  outline: none;
+}
+
+/* Options */
+.select-category option {
+  padding: 8px;
+  font-size: 14px;
+}
+
+/* Placeholder (-- select --) */
+.select-category option[value=""] {
+  color: #999;
+}

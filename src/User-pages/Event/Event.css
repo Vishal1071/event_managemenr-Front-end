@@ -1,0 +1,411 @@
+.wedding{
+  background-color: #fff;
+  color: black;
+}
+.wediing-text{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.wediing-text h2{
+    font-weight: lighter;
+    font-family:'Courier New', Courier, monospace;
+    font-size: 1.5rem;
+}
+.h1{
+    margin-top: -20px;
+    color: green;
+}
+.wed-im h1{
+    font-weight: lighter;
+    font-size: 2.5rem;
+    margin: 0 2rem;
+    font-family: 'Courier New', Courier, monospace;
+}
+.wed-im{
+    width: 60%; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.wed-im img{
+    width: 20%;
+}
+.wedd-text p{
+    font-size: 20px;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.wedding button{
+    margin: 3rem 0;
+    padding: 10px 20px;
+    border-radius: 200px;
+    border: none;
+    background-color: #05a8e3;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 1s ease;
+}
+.wedding button:hover{
+    background-color: #83deff;
+    color: black;
+}
+.bachelor-party{
+    width: 100%;
+    float: left;
+    background-color: #fff;
+}
+
+.bachelor-img{
+    width: 50%;
+    float: left;
+    justify-content: center;
+    display: flex;
+}
+
+.bachelor-text{
+    width: 40%;
+    height: 100vh;
+    float: left;
+    font-weight: 100;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+.bachelor-text h1{
+    font-weight: 100;
+    font-size: 3rem;
+}
+.bachelor-text p{
+    font-size: 1.5rem;
+}
+.a{
+    margin-left: 6rem;
+}
+.abc{
+    margin-top: 3rem;
+}
+.birth-img{
+    background-image: url("	https://artcoreevent.com/wp-content/uploads/2025/06/Background-1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 120vh;
+}
+.birth-text{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 2rem;
+    font-weight: 100;
+}
+.birth-text h2{
+    font-family:'Courier New', Courier, monospace;
+
+}
+.birth-text h1{
+    font-family: courier;
+    font-size: 3rem;
+
+}
+.birth-text h3{
+    margin-top: -20px;
+    font-family:cursive;
+    font-size: 20px;
+}
+.birth-text p{
+    font-size: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.ing img{
+    margin-top: 8rem;
+}
+.events-containar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 cards in one row */
+  gap: 20px;
+  padding: 20px;
+}
+
+.event-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.event-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.event-content {
+  padding: 15px;
+}
+
+.event-date {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 8px;
+}
+
+.event-title {
+  font-size: 18px;
+  margin: 5px 0;
+  color: #333;
+}
+
+.event-location,
+.event-price {
+  font-size: 15px;
+  color: #555;
+  margin: 6px 0;
+}
+
+.event-price {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.event-btn {
+  display: inline-block;
+  margin-top: 10px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.event-btn:hover {
+  background: #0056b3;
+}
+.b{
+    margin-left: 45rem;
+}
+.event-detail-main{
+    background: #b3b3b3;
+    padding: 1px 0 1rem 0;
+}
+.events-details {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.event-banner {
+  width: 150vh;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.events-details h1 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  color: #001952;
+  text-align: center;
+}
+
+.events-details p {
+  font-size: 1rem;
+  margin: 8px 0;
+}
+
+.events-details strong {
+  color: #001952;
+}
+
+.date-time {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  padding: 15px;
+  background: #f9f9f9;
+  border-radius: 10px;
+}
+
+.date-time div {
+  flex: 1;
+  padding: 10px;
+}
+
+.date-time p {
+  margin: 5px 0;
+}
+
+.events-details h3 {
+  font-size: 1.4rem;
+  margin: 20px 0 10px;
+  color: #444;
+}
+
+
+
+
+
+/* ======================
+   Responsive Layer
+   ====================== */
+
+/* Tablets (≤1024px) */
+@media (max-width: 1024px) {
+  .wed-im {
+    width: 80%;
+    flex-direction: column;
+    text-align: center;
+  }
+  .wed-im img {
+    width: 40%;
+    margin: 10px 0;
+  }
+  .wedd-text p {
+    width: 95%;
+    font-size: 18px;
+  }
+  .bachelor-img, .bachelor-text {
+    width: 100%;
+    float: none;
+    height: auto;
+    padding: 20px;
+  }
+  .bachelor-text h1 {
+    font-size: 2.2rem;
+  }
+  .events-containar {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .event-banner {
+    width: 100%;
+  }
+}
+
+/* Mobiles (≤768px) */
+@media (max-width: 768px) {
+  .wediing-text h2 {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  .wed-im {
+    width: 100%;
+  }
+  .wed-im img {
+    width: 60%;
+  }
+  .wedd-text p {
+    font-size: 16px;
+  }
+  .bachelor-text {
+    font-size: 1rem;
+    padding: 10px;
+  }
+  .bachelor-text h1 {
+    font-size: 1.8rem;
+  }
+  .bachelor-text p {
+    font-size: 1.1rem;
+  }
+  .birth-text h1 {
+    font-size: 2rem;
+  }
+  .birth-text p {
+    font-size: 16px;
+  }
+  .events-containar {
+    grid-template-columns: 1fr;
+  }
+  .date-time {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* Small Mobiles (≤480px) */
+@media (max-width: 480px) {
+  .wed-im img {
+    width: 80%;
+  }
+  .wedd-text p {
+    font-size: 14px;
+  }
+  .bachelor-text h1 {
+    font-size: 1.5rem;
+  }
+  .bachelor-text p {
+    font-size: 1rem;
+  }
+  .birth-text h1 {
+    font-size: 1.5rem;
+  }
+  .birth-text h3 {
+    font-size: 16px;
+  }
+  .event-content {
+    padding: 10px;
+  }
+  .event-title {
+    font-size: 16px;
+  }
+  .event-location,
+  .event-price {
+    font-size: 14px;
+  }
+  .event-btn {
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+  }
+}
+
+/* Wedding Image Responsive */
+.wedding-img img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .wedding-img img {
+    height: 400px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .wedding-img img {
+    height: 280px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .wedding-img img {
+    height: 200px;
+  }
+}

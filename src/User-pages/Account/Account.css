@@ -1,0 +1,154 @@
+/* ===== User Profile Container ===== */
+.user-profile-container {
+    max-width: 700px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 25px 30px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ===== Heading ===== */
+.user-profile-container h3 {
+    color: #333;
+    margin-bottom: 25px;
+    font-size: 1.6rem;
+}
+.user-pofile-secation{
+  position: relative;
+  top: 10px;
+  margin-bottom: -20px;
+}
+
+/* ===== Profile Picture Section ===== */
+.user-profile-pic-section {
+    position: relative;
+}
+
+.user-profile-pic {
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #4a90e2;
+}
+
+.user-pic-upload-icon {
+    position: absolute;
+    bottom: -4px;
+    right: calc(94% - 50px);
+    background: #4a90e2;
+    color: #fff;
+    border-radius: 50%;
+    padding: 7px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.user-pic-upload-icon:hover {
+    background: #357abd;
+}
+
+/* ===== Display Info ===== */
+.user-info-display {
+    position: relative;
+    bottom: 70px;
+    margin-left: 95px;
+    min-width: 180px;
+  float: inline-start;
+}
+
+.user-info-display p {
+    margin: 3px 0;
+    color: #444;
+    font-size: 0.95rem;
+}
+
+/* ===== Input Fields ===== */
+.user-input-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.user-input-group label {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 6px;
+}
+
+.user-input-group input {
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+.user-input-group input:focus {
+    border-color: #4a90e2;
+}
+
+/* ===== Radio Group ===== */
+.user-radio-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.user-radio-group label {
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+}
+
+.user-radio-group input {
+    margin-right: 5px;
+}
+
+/* ===== Submit Button ===== */
+.user-submit-btn {
+    text-align: end;
+    position: relative;
+    bottom: 90px;
+    margin: 20px 0;
+}
+
+.user-submit-btn button {
+    background: #4a90e2;
+    color: #fff;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+}
+
+.user-submit-btn button:hover {
+    background: #357abd;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 600px) {
+    .user-profile-container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .user-radio-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .user-profile-pic {
+        width: 100px;
+        height: 100px;
+    }
+
+    .user-submit-btn button {
+        width: 100%;
+    }
+}
