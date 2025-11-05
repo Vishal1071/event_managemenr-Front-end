@@ -20,8 +20,14 @@ function Signin() {
       });
 
       alert(res.data.message);
-      navigate("/");
       setUser(res.data.user);
+
+      if (res.data.user.role === "admin") {
+      navigate("/admin");
+    } else {
+      navigate("/");
+    }
+
     } catch (error) {
       alert(error.res?.data?.message || "Login failed ❌" )
     }
