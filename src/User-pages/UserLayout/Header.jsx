@@ -1,6 +1,7 @@
 import './UserLayout.css'
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import axios from 'axios';
 import { useAuth } from '../../Context/AuthContext';
 
 const Header = () => {
@@ -9,10 +10,18 @@ const Header = () => {
     const [open, setOpen] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false); // for mobile menu
 
-    const handleLogout = () => {
+    const handleLogin = () => {
     setUser(null);
     navigate("/signin");
   };
+
+  const handleLogout = () =>{
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("user");
+    delete axios.defaults.headers.common["Authorization"];
+    setUser(null);
+    navigate("/signin");
+  }
     return (
         <>
             <div className="header">
@@ -60,13 +69,13 @@ const Header = () => {
                         <div className="drop-down">
                             <NavLink to="/profile"><button>Profile</button></NavLink>
                             <NavLink to="/mybooking"><button>My booking</button></NavLink>
-                            <NavLink to="/signin"><button>Logout</button></NavLink>
+                            <button onClick={handleLogout}>Logout</button>
                         </div>
                     )}
                     <span className='span'>{user?.name}</span>
                     </>
                     ):( 
-                        <button className='mail-login-btn' onClick={handleLogout}>Login</button>
+                        <button className='mail-login-btn' onClick={handleLogin}>Login</button>
                     )}
                     
                 </div>

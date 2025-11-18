@@ -5,7 +5,7 @@ import './AdminLayout.css'
 
 function AdminLayout() {
   return (
-    <div>
+    <div className="admin-layout">
       <Aheader />
       <div className="admin-main">
          <Outlet /> 

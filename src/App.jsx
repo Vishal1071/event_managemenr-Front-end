@@ -54,11 +54,11 @@ function App() {
         {/* Admin Routes */}
         <Route path="/admin" element={<AdminLayout />}>
         <Route index element={<UserList />} />
-        <Route path="/admin/eventPost" element={<EventPost />} />
-        <Route path="/admin/postCategory" element={<PostCategory/>}/>
-        <Route path="/admin/addGallary" element={<AddGallary/>}/>
-        <Route path="/admin/contactList" element={<ContactList/>}/>
-        <Route path="/admin/profile" element={<AdminProfile/>}/>
+        <Route path="eventPost" element={<EventPost />} />
+        <Route path="postCategory" element={<PostCategory/>}/>
+        <Route path="contactList" element={<ContactList/>}/>
+        <Route path="addGallary" element={<AddGallary/>}/>
+        <Route path="profile" element={<AdminProfile/>}/>
         </Route>
 
         {/* Auth routes (no header/footer) */}

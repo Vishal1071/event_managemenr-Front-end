@@ -10,7 +10,19 @@ function UserList() {
     
     const fechUsers = async() =>{
         try {
-            const res = await axios.get("http://localhost:8080/api/user/getAllUser");
+
+             const token = localStorage.getItem("accessToken");
+            if (!token) {
+                console.error("No token found");
+                return;
+            }
+
+            const res = await axios.get("http://localhost:8080/api/user/getAllUser",
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                });
             // console.log(res.data.data);
             setUsers(res.data.data);
 
@@ -28,7 +40,11 @@ function UserList() {
         if(!confirmDelete) return;
 
         try {
-            await axios.delete(`http://localhost:8080/api/user/deleteUser/${id}`);
+            const token = localStorage.getItem("accessToken");
+
+            await axios.delete(`http://localhost:8080/api/user/deleteUser/${id}`,
+                { headers: { Authorization: `Bearer ${token}`} }
+            );
             alert("User deleted successfully ✅");
             fechUsers();
         } catch (error) {

@@ -1,14 +1,23 @@
 import './AdminLayout.css';
 import { PiUserListFill } from "react-icons/pi";
+import axios from 'axios';
 import { BsPostcardHeartFill } from "react-icons/bs";
 import { BiCategory } from "react-icons/bi";
 import { MdOutlineContactPhone } from "react-icons/md";
 import { IoLogOutOutline } from "react-icons/io5";
-import { NavLink , Link} from "react-router-dom";
+import { NavLink , Link, useNavigate} from "react-router-dom";
+
 
 
 function Aheader() {
 
+  const navigate = useNavigate();
+
+  const handlelogout = () =>{
+    localStorage.removeItem("accessToken");
+    delete axios.defaults.headers.common["Authorization"];
+    navigate("/signin");
+  }
 
   return (
     <>
@@ -47,7 +56,6 @@ function Aheader() {
                 <li><Link className="dropdown-item" to="404">New project</Link></li>
                 <li><Link className="dropdown-item" to="404">Settings</Link></li>
                 <li><hr className="dropdown-divider" /></li>
-                <li><Link className="dropdown-item" to="/signin">Logout</Link></li>
               </ul>
             </div>
           </div>
@@ -123,7 +131,7 @@ function Aheader() {
           </ul>
 
           <hr />
-          <Link className="dropdown-item" to="/signin">Logout  <IoLogOutOutline /></Link>
+          <button className="logout-btn" onClick={handlelogout} >Logout  <IoLogOutOutline /></button>
         </div>
       </div>
     </>

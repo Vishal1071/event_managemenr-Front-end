@@ -49,8 +49,17 @@ function Account() {
         e.preventDefault();
 
         try {
-            const res = await axios.put(`http://localhost:8080/api/user/updatUser/${user._id}`,
-                { ...formData });
+            const token = localStorage.getItem("accessToken");
+
+            const res = await axios.put(`http://localhost:8080/api/user/updateUser/${user._id}`,
+                { ...formData },
+                 {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    "Content-Type": "application/json"
+                }
+            }
+            );
 
             alert("Profile update successfully!!")
             console.log(res.data);

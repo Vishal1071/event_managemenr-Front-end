@@ -55,6 +55,7 @@ body{
   background-color: #495057;
 }
 
+
 .admin-sidebar .nav-link {
   color: #fff;
 }
@@ -63,12 +64,24 @@ body{
 /* Main content area */
 .admin-main{
   margin-left: 252.5px; 
+    flex: 1;
+
   margin-top: 68.8px;   
   background: #f8f9fa;
   color: #212529;
   min-height: calc(100vh - 56px);
 }
 
+.admin-layout {
+  display: flex;
+}
+
+.logout-btn{
+  border: none;
+  background-color: transparent;
+  color: #fff;
+  text-align: start;
+}
 
 
 /* Responsive CSS */

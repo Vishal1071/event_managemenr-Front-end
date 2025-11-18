@@ -19,6 +19,15 @@ function Signin() {
         password,
       });
 
+      localStorage.setItem("accessToken", res.data.accessToken);
+
+      axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.accessToken}`;
+
+      // persist user object so reload can restore profile fields quickly
+      try {
+        localStorage.setItem("user", JSON.stringify(res.data.user));
+      } catch {}
+
       alert(res.data.message);
       setUser(res.data.user);
 
