@@ -6,8 +6,8 @@ import { MdAddAPhoto } from "react-icons/md";
 
 function Account() {
 
-    const { user } = useAuth();
-
+    const { user, setUser } = useAuth();
+    const [selectedFile, setSelectedFile] = useState(null);
     const [profilepic, setProfilepic] = useState("/proPic.jpg");
 
     const [formData, setFormData] = useState({
@@ -27,15 +27,19 @@ function Account() {
                 phone: user.phone || "",
                 gender: user.gender || "",
             });
+
+            // Load existing avatar if user has one
+            if (user.avatar) setProfilepic(user.avatar.url || user.avatar);
         }
-    }, [user])
+    }, [user]);
 
     const handelPicChange = (e) => {
-        const file = e.target.files[0]
-        if (file) {
-            setProfilepic(URL.createObjectURL(file));
-        }
-    }
+        const file = e.target.files[0];
+        if (!file) return;
+
+        setProfilepic(URL.createObjectURL(file));
+        setSelectedFile(file);
+    };
 
     const handeleChange = (e) => {
         const { name, value } = e.target;
@@ -48,56 +52,89 @@ function Account() {
     const handelsubmit = async (e) => {
         e.preventDefault();
 
-        try {
-            const token = localStorage.getItem("accessToken");
+        const token = localStorage.getItem("accessToken");
 
-            const res = await axios.put(`http://localhost:8080/api/user/updateUser/${user._id}`,
-                { ...formData },
-                 {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                    "Content-Type": "application/json"
-                }
+        try {
+            let newAvatar = null;
+
+            // 1️⃣ Upload profile picture if new file selected
+            if (selectedFile) {
+                const picForm = new FormData();
+                // backend expects field name 'avatar' (multer: upload.single('avatar'))
+                picForm.append("avatar", selectedFile);
+
+                const picRes = await axios.post(
+                    `http://localhost:8080/api/user/uploadProfilePic/${user._id}`,
+                    picForm,
+                    {
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                            "Content-Type": "multipart/form-data",
+                        },
+                    }
+                );
+
+                newAvatar = picRes.data.avatar?.url || picRes.data.avatar;
+
+                // update user instantly and persist
+                setUser(prev => {
+                    const updated = { ...prev, avatar: newAvatar };
+                    try { localStorage.setItem("user", JSON.stringify(updated)); } catch {}
+                    return updated;
+                });
             }
+
+            // 2️⃣ Update name, email, phone, etc.
+            const res = await axios.put(
+                `http://localhost:8080/api/user/updateUser/${user._id}`,
+                { ...formData },
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                        "Content-Type": "application/json"
+                    }
+                }
             );
 
-            alert("Profile update successfully!!")
-            console.log(res.data);
+            alert("Profile updated successfully!");
 
-            const updateUser = res.data.user;
-            
-            setFormData({
-                name: updateUser.name || "", 
-                email: updateUser.email || "",
-                password: "",
-                phone: updateUser.phone || "",
-                gender: updateUser.gender || "",
+            // update user in context and persist
+            setUser(prev => {
+                const updated = {
+                    ...prev,
+                    ...res.data.user,
+                    avatar: newAvatar || prev.avatar,
+                };
+                try { localStorage.setItem("user", JSON.stringify(updated)); } catch {}
+                return updated;
             });
 
         } catch (error) {
-            console.error("Error Updeting users", error);
-            alert(error.response?.data?.message || "Update failed ❌");
+            console.log(error);
+            alert(error.response?.data?.message || "Update failed");
         }
 
-        setFormData((prev) => ({
-            ...prev,
-            password: "",
-        }));
+        setFormData(prev => ({ ...prev, password: "" }));
     };
 
     return (
         <>
-
             <div className="user-profile-container">
                 <h3>User Profile</h3>
 
                 <form onSubmit={handelsubmit} className="user-profile-form">
                     <div className="user-pofile-secation">
                         <div className="user-profile-pic-section">
-                            <img src={profilepic} alt="Profile" className="user-profile-pic" />
+                            <img 
+                              src={user?.avatar?.url || user?.avatar || profilepic} 
+                              alt="Profile" 
+                              className="user-profile-pic" 
+                            />
+
                             <label htmlFor="fileInput" className='user-pic-upload-icon'>
                                 <MdAddAPhoto />
                             </label>
+
                             <input
                                 type="file"
                                 id='fileInput'
@@ -112,101 +149,46 @@ function Account() {
                         </div>
 
                         <div className="user-submit-btn">
-                            <button type='submit' >Edit</button>
+                            <button type='submit'>Edit</button>
                         </div>
                     </div>
 
                     {/* name & email */}
                     <div className="user-input-group">
-                        <label htmlFor="adname">Name:</label>
+                        <label>Name:</label>
                         <input
                             type="text"
                             name="name"
-                            id="adname"
                             value={formData.name}
                             onChange={handeleChange}
                         />
                     </div>
 
                     <div className="user-input-group">
-                        <label htmlFor="email">Email:</label>
+                        <label>Email:</label>
                         <input
                             type="email"
                             name="email"
-                            id="email"
                             value={formData.email}
                             onChange={handeleChange}
                         />
                     </div>
 
-                    {/* password */}
-                    <div className="user-input-group">
-                        <label htmlFor="newPass">New Password:</label>
-                        <input
-                            type="password"
-                            name="password"
-                            id="newPass"
-                            value={formData.password}
-                            onChange={handeleChange}
-                        />
-                    </div>
-
-                    {/* Gender */}
-                    <div className="user-input-group">
-                        <label>Gender:</label>
-                        <div className="user-radio-group">
-                            <label>
-                                <input
-                                    type="radio"
-                                    name="gender"
-                                    value="Male"
-                                    checked={formData.gender === "Male"}
-                                    onChange={handeleChange}
-                                />
-                                Male
-                            </label>
-                            <label>
-                                <input
-                                    type="radio"
-                                    name="gender"
-                                    value="Female"
-                                    checked={formData.gender === "Female"}
-                                    onChange={handeleChange}
-                                />
-                                Female
-                            </label>
-                            <label>
-                                <input
-                                    type="radio"
-                                    name="gender"
-                                    value="Other"
-                                    checked={formData.gender === "Other"}
-                                    onChange={handeleChange}
-                                />
-                                Other
-                            </label>
-                        </div>
-                    </div>
-
                     {/* Phone number */}
                     <div className="user-input-group">
-                        <label htmlFor="phone">Phone Number:</label>
+                        <label>Phone Number:</label>
                         <input
                             type="tel"
                             name="phone"
-                            id="phone"
                             value={formData.phone}
                             onChange={handeleChange}
-                            placeholder="Enter phone number"
                         />
                     </div>
 
                 </form>
             </div>
-
         </>
     );
 }
 
-
-export default Account
+export default Account;

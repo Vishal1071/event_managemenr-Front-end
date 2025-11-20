@@ -22,6 +22,9 @@ const Header = () => {
     setUser(null);
     navigate("/signin");
   }
+
+  
+
     return (
         <>
             <div className="header">
@@ -60,7 +63,7 @@ const Header = () => {
                     {user ? (
                         <>
                         <img 
-                        src="/proPic.jpg" 
+                        src={user?.avatar?.url ||"/proPic.jpg" }
                         alt="STI-modified.png" 
                         className='profile-img' 
                         onClick={() => setOpen(!open)} 
