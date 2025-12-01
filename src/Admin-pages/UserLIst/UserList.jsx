@@ -1,6 +1,6 @@
 import './UserList.css'
 import axios from "axios"
-import { useState, useEffect } from 'react';
+import { useState, useEffect, use } from 'react';
 
 
 function UserList() {
@@ -24,7 +24,8 @@ function UserList() {
                     }
                 });
             // console.log(res.data.data);
-            setUsers(res.data.data);
+            const onlyUser = res.data.data.filter((user) => user.role === "user"); 
+            setUsers(onlyUser);
 
         } catch (error) {
             console.error("Error feching users", error);
@@ -33,7 +34,7 @@ function UserList() {
 
     useEffect(()=>{
         fechUsers();
-    }, []);
+    }, [users]);
 
     const handleDelete = async(id) =>{
         const confirmDelete = window.confirm("Are you sure you want to delete this user?");

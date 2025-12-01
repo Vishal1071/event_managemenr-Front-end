@@ -1,18 +1,34 @@
 import { useState } from 'react'
 import './AdminProfile.css'
+import { useAuth } from '../../Context/AuthContext';
 import { MdAddAPhoto } from "react-icons/md";
+import { useEffect } from 'react';
+import axios from 'axios';
 
 function AdminProfile() {
 
   const [profilepic, setProfilepic] = useState("/proPic.jpg");
+  const { user, setUser } = useAuth();
 
   const [formData, setFormData] = useState({
-    AdminName: "Admin vishal",
-    email: "admin@exmaple.com",
+    AdminName: "",
+    email: "",
     currentPassword: "",
     newPassword: "",
     confirmPassword: "",
   });
+
+  useEffect(()=>{
+    if(user){
+      setFormData({
+        AdminName: user.name || "",
+        email: user.email || "",
+        currentPassword: "",
+        newPassword: "",
+        confirmPassword: "",
+      })
+    }
+  },[user])
 
   const handelPicChange = (e) => {
     const file = e.target.files[0]
@@ -29,16 +45,43 @@ function AdminProfile() {
     }));
   };
 
-  const handelsubmit = (e) => {
+  const handelsubmit = async (e) => {
     e.preventDefault();
 
-    if (formData.newPassword !== formData.confirmPassword) {
-      alert("new password do not match!")
+    if(formData.newPassword !== formData.confirmPassword){
+      alert("New password and confirm password do not match");
       return;
     }
-    console.log("Profile update:", { ...formData, profilepic });
-    alert("Profile update successfully!!")
 
+    try {
+      const token = localStorage.getItem("accessToken");
+
+      const payload = {
+      name : formData.AdminName,
+      email : formData.email,
+    }
+     if(formData.newPassword.trim() !== ""){
+      payload.password = formData.newPassword;
+     }
+
+     const response = await axios.put(
+      `http://localhost:8080/api/user/updateUser/${user._id}`,
+      payload,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+     )
+
+     setUser(response.data.user);
+     alert("Profile updated successfully");
+    
+    } catch (error) {
+      console.log(error);
+      alert(error.response?.data?.message || "Update failed");
+    }
+    
     setFormData((prev) => ({
       ...prev,
       currentPassword: "",

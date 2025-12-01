@@ -6,11 +6,12 @@ import { BiCategory } from "react-icons/bi";
 import { MdOutlineContactPhone } from "react-icons/md";
 import { IoLogOutOutline } from "react-icons/io5";
 import { NavLink , Link, useNavigate} from "react-router-dom";
-
+import { useAuth } from '../../Context/AuthContext';
 
 
 function Aheader() {
 
+  const { user } = useAuth();
   const navigate = useNavigate();
 
   const handlelogout = () =>{
@@ -49,7 +50,7 @@ function Aheader() {
                   height="32"
                   className="rounded-circle me-2"
                 />
-                <strong>Admin vishal</strong>
+                <strong>{user?.name}</strong>
               </a>
               <ul className="dropdown-menu dropdown-menu-dark text-small shadow">
                 <li><Link className="dropdown-item" to="/admin/profile">Profile</Link></li>
