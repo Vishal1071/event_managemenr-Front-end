@@ -44,10 +44,10 @@ function Aheader() {
                 data-bs-toggle="dropdown"
               >
                 <img
-                  src="/proPic.jpg"
+                  src={user?.avatar?.url || "/proPic.jpg"}
                   alt="proPic.png"
-                  width="32"
-                  height="32"
+                  width="43"
+                  height="43"
                   className="rounded-circle me-2"
                 />
                 <strong>{user?.name}</strong>

@@ -8,6 +8,7 @@ import axios from 'axios';
 function AdminProfile() {
 
   const [profilepic, setProfilepic] = useState("/proPic.jpg");
+  const [selectedPic, setSelectedPic] = useState(null);
   const { user, setUser } = useAuth();
 
   const [formData, setFormData] = useState({
@@ -18,8 +19,8 @@ function AdminProfile() {
     confirmPassword: "",
   });
 
-  useEffect(()=>{
-    if(user){
+  useEffect(() => {
+    if (user) {
       setFormData({
         AdminName: user.name || "",
         email: user.email || "",
@@ -28,12 +29,17 @@ function AdminProfile() {
         confirmPassword: "",
       })
     }
-  },[user])
+
+    if (user?.avatar?.url) {
+    setProfilepic(user.avatar.url);
+  }
+  }, [user])
 
   const handelPicChange = (e) => {
     const file = e.target.files[0]
     if (file) {
       setProfilepic(URL.createObjectURL(file));
+      setSelectedPic(file);
     }
   }
 
@@ -48,7 +54,7 @@ function AdminProfile() {
   const handelsubmit = async (e) => {
     e.preventDefault();
 
-    if(formData.newPassword !== formData.confirmPassword){
+    if (formData.newPassword !== formData.confirmPassword) {
       alert("New password and confirm password do not match");
       return;
     }
@@ -57,31 +63,53 @@ function AdminProfile() {
       const token = localStorage.getItem("accessToken");
 
       const payload = {
-      name : formData.AdminName,
-      email : formData.email,
-    }
-     if(formData.newPassword.trim() !== ""){
-      payload.password = formData.newPassword;
-     }
-
-     const response = await axios.put(
-      `http://localhost:8080/api/user/updateUser/${user._id}`,
-      payload,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
+        name: formData.AdminName,
+        email: formData.email,
       }
-     )
+      if (formData.newPassword.trim() !== "") {
+        payload.password = formData.newPassword;
+      }
 
-     setUser(response.data.user);
-     alert("Profile updated successfully");
-    
+      const response = await axios.put(
+        `http://localhost:8080/api/user/updateUser/${user._id}`,
+        payload,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      if (selectedPic) {
+        const fd = new FormData();
+        fd.append("avatar", selectedPic);
+
+        const uploadRes = await axios.put(
+          `http://localhost:8080/api/user/uploadProfilePic`,
+          fd,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-Type": "multipart/form-data",
+            }
+          }
+        );
+
+        setUser((prev) => ({
+          ...prev,
+          ...response.data.user,
+          avatar: uploadRes.data.avatar
+        }));
+      }
+      
+      alert("Profile updated successfully");
+
+
     } catch (error) {
       console.log(error);
       alert(error.response?.data?.message || "Update failed");
     }
-    
+
     setFormData((prev) => ({
       ...prev,
       currentPassword: "",

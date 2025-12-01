@@ -29,7 +29,9 @@ function Account() {
             });
 
             // Load existing avatar if user has one
-            if (user.avatar) setProfilepic(user.avatar.url || user.avatar);
+            if (user?.avatar?.url){
+                 setProfilepic(user.avatar.url);
+            }
         }
     }, [user]);
 
@@ -60,11 +62,10 @@ function Account() {
             // 1️⃣ Upload profile picture if new file selected
             if (selectedFile) {
                 const picForm = new FormData();
-                // backend expects field name 'avatar' (multer: upload.single('avatar'))
                 picForm.append("avatar", selectedFile);
 
-                const picRes = await axios.post(
-                    `http://localhost:8080/api/user/uploadProfilePic/${user._id}`,
+                const picRes = await axios.put(
+                    `http://localhost:8080/api/user/uploadProfilePic`,
                     picForm,
                     {
                         headers: {
@@ -74,7 +75,7 @@ function Account() {
                     }
                 );
 
-                newAvatar = picRes.data.avatar?.url || picRes.data.avatar;
+                newAvatar = picRes.data.avatar;
 
                 // update user instantly and persist
                 setUser(prev => {
@@ -126,7 +127,7 @@ function Account() {
                     <div className="user-pofile-secation">
                         <div className="user-profile-pic-section">
                             <img 
-                              src={user?.avatar?.url || user?.avatar || profilepic} 
+                              src={profilepic || user?.avatar?.url || "/proPic.jpg"} 
                               alt="Profile" 
                               className="user-profile-pic" 
                             />
@@ -172,54 +173,6 @@ function Account() {
                             value={formData.email}
                             onChange={handeleChange}
                         />
-                    </div>
-
-                    <div className="user-input-group">
-                        <label htmlFor="newPass">New Password:</label>
-                        <input
-                            type="password"
-                            name="password"
-                            id="newPass"
-                            value={formData.password}
-                            onChange={handeleChange}
-                        />
-                    </div>
-
-                     {/* Gender */}
-                    <div className="user-input-group">
-                        <label>Gender:</label>
-                        <div className="user-radio-group">
-                            <label>
-                                <input
-                                    type="radio"
-                                    name="gender"
-                                    value="Male"
-                                    checked={formData.gender === "Male"}
-                                    onChange={handeleChange}
-                                />
-                                Male
-                            </label>
-                            <label>
-                                <input
-                                    type="radio"
-                                    name="gender"
-                                    value="Female"
-                                    checked={formData.gender === "Female"}
-                                    onChange={handeleChange}
-                                />
-                                Female
-                            </label>
-                            <label>
-                                <input
-                                    type="radio"
-                                    name="gender"
-                                    value="Other"
-                                    checked={formData.gender === "Other"}
-                                    onChange={handeleChange}
-                                />
-                                Other
-                            </label>
-                        </div>
                     </div>
 
                     {/* Phone number */}
