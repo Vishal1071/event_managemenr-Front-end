@@ -174,6 +174,56 @@ function Account() {
                             onChange={handeleChange}
                         />
                     </div>
+                    
+                    {/* password */}
+
+                     <div className="user-input-group">
+                        <label htmlFor="newPass">New Password:</label>
+                        <input
+                            type="password"
+                            name="password"
+                            id="newPass"
+                            value={formData.password}
+                            onChange={handeleChange}
+                        />
+                    </div>
+
+                     {/* Gender */}
+                    <div className="user-input-group">
+                        <label>Gender:</label>
+                        <div className="user-radio-group">
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="gender"
+                                    value="Male"
+                                    checked={formData.gender === "Male"}
+                                    onChange={handeleChange}
+                                />
+                                Male
+                            </label>
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="gender"
+                                    value="Female"
+                                    checked={formData.gender === "Female"}
+                                    onChange={handeleChange}
+                                />
+                                Female
+                            </label>
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="gender"
+                                    value="Other"
+                                    checked={formData.gender === "Other"}
+                                    onChange={handeleChange}
+                                />
+                                Other
+                            </label>
+                        </div>
+                    </div>
 
                     {/* Phone number */}
                     <div className="user-input-group">

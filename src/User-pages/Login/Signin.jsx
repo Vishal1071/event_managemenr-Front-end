@@ -19,23 +19,20 @@ function Signin() {
         password,
       });
 
-      localStorage.setItem("accessToken", res.data.accessToken);
+      const {accessToken, user} = res.data;
 
-      axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.accessToken}`;
+      localStorage.setItem("accessToken", accessToken);
+      localStorage.setItem("user", JSON.stringify(user));
+
+      axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
 
       // persist user object so reload can restore profile fields quickly
-      try {
-        localStorage.setItem("user", JSON.stringify(res.data.user));
-      } catch {}
 
       alert(res.data.message);
-      setUser(res.data.user);
+      setUser(user);
 
-      if (res.data.user.role === "admin") {
-      navigate("/admin");
-    } else {
-      navigate("/");
-    }
+      if (user.role === "admin") navigate("/admin");
+      else navigate("/");
 
     } catch (error) {
       alert(error.res?.data?.message || "Login failed ❌" )

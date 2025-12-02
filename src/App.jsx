@@ -14,6 +14,7 @@ import Cricket from './User-pages/Event/Cricket'
 import About from './User-pages/About/About'
 import Contact from './User-pages/Contact/Contact'
 import Gallery from './User-pages/Gallery/Gallery'
+import { UserRoute } from "./Context/AuthContext.jsx";
 
 //Admin pages
 import UserList from "./Admin-pages/UserLIst/UserList";
@@ -22,6 +23,7 @@ import PostCategory from "./Admin-pages/PostCategory/PostCategory";
 import AddGallary from "./Admin-pages/AddGallary/AddGallary";
 import ContactList from "./Admin-pages/ContactList/ContactList";
 import AdminProfile from "./Admin-pages/profile/AdminProfile";
+import { AdminRoute } from "./Context/AuthContext.jsx";
 
 //Common Pages
 import Signin from './User-pages/Login/Signin'
@@ -38,7 +40,7 @@ function App() {
 
       {/* User Routes */}
       <Routes>
-        <Route path="/" element={<UserLayout />}>
+        <Route path="/" element={<UserRoute> <UserLayout /> </UserRoute>}>
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="events/wedding" element={<Wedding />} />
@@ -52,7 +54,7 @@ function App() {
         </Route>
 
         {/* Admin Routes */}
-        <Route path="/admin" element={<AdminLayout />}>
+        <Route path="/admin" element={<AdminRoute> <AdminLayout /> </AdminRoute> }>
         <Route index element={<UserList />} />
         <Route path="eventPost" element={<EventPost />} />
         <Route path="postCategory" element={<PostCategory/>}/>
