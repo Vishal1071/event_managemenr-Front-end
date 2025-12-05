@@ -1,4 +1,5 @@
 import './AddGallary.css';
+import axios from 'axios';
 import { useState } from 'react'
 
 function AddGallary() {
@@ -19,9 +20,29 @@ function AddGallary() {
 
   const handelsubmit =(e)=>{
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    
+
+    const fd = new FormData();
+    fd.append("title", formData.title);
+    fd.append("category", formData.category);
+    fd.append("file", formData.file);
+
+    try {
+
+      const res = axios.post("http://localhost:8080/api/gallery/addGallery", fd);
+      alert("Upload successful");
+
+      setFormData({
+        title:"",
+        category:"",
+        file: null,
+      })
+
+    } catch (error) {
+      console.log(error);
+      alert("Upload failed");
+    }
   }
+
   return (
     <>
       <div className="post-event-Gallary">
@@ -67,10 +88,10 @@ function AddGallary() {
           required
           >
             <option value="">-- select --</option>
-            <option value={formData.wedding}>Wedding</option>
-            <option value={formData.birthday}>Birthday</option>
-            <option value={formData.corporate}>Corporate</option>
-            <option value={formData.cricket}>Cricket</option>
+            <option value={formData.wedding}>wedding</option>
+            <option value={formData.birthday}>birthday</option>
+            <option value={formData.corporate}>corporate</option>
+            <option value={formData.cricket}>cricket</option>
           </select>
           </div>
 

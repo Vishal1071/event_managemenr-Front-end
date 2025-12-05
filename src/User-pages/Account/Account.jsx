@@ -30,7 +30,7 @@ function Account() {
 
             // Load existing avatar if user has one
             if (user?.avatar?.url){
-                 setProfilepic(user.avatar.url);
+                setProfilepic(user.avatar.url);
             }
         }
     }, [user]);
