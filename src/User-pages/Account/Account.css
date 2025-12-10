@@ -137,6 +137,9 @@
         width: 90%;
         padding: 20px;
     }
+    .user-info-display p{
+        margin-left: 10px;
+    }
 
     .user-radio-group {
         flex-direction: column;
@@ -150,6 +153,6 @@
 
     .user-submit-btn button {
         width: 100%;
-        margin-top: 30px;
+        margin-top: 60px;
     }
 }
