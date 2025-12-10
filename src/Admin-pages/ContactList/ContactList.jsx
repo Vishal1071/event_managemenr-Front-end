@@ -9,7 +9,7 @@ function ContactList() {
 
   const getAllContact = async() =>{
     try {
-      const res = await axios.get("http://localhost:8080/api/user/getAllContact");
+      const res = await axios.get("https://event-management-backend-5xoa.onrender.com/api/user/getAllContact");
       setContact(res.data.data);
       console.log(res.data.data);
     } catch (error) {

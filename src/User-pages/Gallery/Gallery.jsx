@@ -10,7 +10,7 @@ const Gallery = () => {
 
   useEffect(() =>{
     const feacheGallery = async () => {
-      const res = await axios.get("http://localhost:8080/api/gallery/getGalleries");
+      const res = await axios.get("https://event-management-backend-5xoa.onrender.com/api/gallery/getGalleries");
       setGalleryData(res.data.data);
     };
     feacheGallery();

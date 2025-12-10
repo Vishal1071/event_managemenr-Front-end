@@ -15,7 +15,7 @@ function Contact() {
         e.preventDefault();
 
         try {
-            const res = await axios.post("http://localhost:8080/api/user/contact", user);
+            const res = await axios.post("https://event-management-backend-5xoa.onrender.com/api/user/contact", user);
             alert("📩 detail sended successfully!!");
             console.log(`countact data:`,res.data);
 

@@ -65,7 +65,7 @@ function Account() {
                 picForm.append("avatar", selectedFile);
 
                 const picRes = await axios.put(
-                    `http://localhost:8080/api/user/uploadProfilePic`,
+                    `https://event-management-backend-5xoa.onrender.com/api/user/uploadProfilePic`,
                     picForm,
                     {
                         headers: {
@@ -87,7 +87,7 @@ function Account() {
 
             // 2️⃣ Update name, email, phone, etc.
             const res = await axios.put(
-                `http://localhost:8080/api/user/updateUser/${user._id}`,
+                `https://event-management-backend-5xoa.onrender.com/api/user/updateUser/${user._id}`,
                 { ...formData },
                 {
                     headers: {

@@ -20,7 +20,7 @@ export const AuthProvider = ({ children }) => {
 
       // Fetch FULL user securely from backend (role MUST come from backend)
       try {
-        const res = await axios.get("http://localhost:8080/api/user/profile");
+        const res = await axios.get("https://event-management-backend-5xoa.onrender.com/api/user/profile");
         if (res?.data?.user) {
           setUser(res.data.user);
           localStorage.setItem("user", JSON.stringify(res.data.user));

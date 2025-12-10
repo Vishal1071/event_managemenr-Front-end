@@ -35,7 +35,7 @@ function SignUp() {
     };
 
     try {
-      const res = await axios.post("http://localhost:8080/api/user/register", payload);
+      const res = await axios.post("https://event-management-backend-5xoa.onrender.com/api/user/register", payload);
       setMessage(res.data.message);
       setFormData({
         fullname: "",

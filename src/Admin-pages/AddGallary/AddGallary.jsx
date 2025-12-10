@@ -28,7 +28,7 @@ function AddGallary() {
 
     try {
 
-      const res = axios.post("http://localhost:8080/api/gallery/addGallery", fd);
+      const res = axios.post("https://event-management-backend-5xoa.onrender.com/api/gallery/addGallery", fd);
       alert("Upload successful");
 
       setFormData({

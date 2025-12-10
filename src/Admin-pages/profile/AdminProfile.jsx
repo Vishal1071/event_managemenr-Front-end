@@ -71,7 +71,7 @@ function AdminProfile() {
       }
 
       const response = await axios.put(
-        `http://localhost:8080/api/user/updateUser/${user._id}`,
+        `https://event-management-backend-5xoa.onrender.com/api/user/updateUser/${user._id}`,
         payload,
         {
           headers: {
@@ -85,7 +85,7 @@ function AdminProfile() {
         fd.append("avatar", selectedPic);
 
         const uploadRes = await axios.put(
-          `http://localhost:8080/api/user/uploadProfilePic`,
+          `https://event-management-backend-5xoa.onrender.com/api/user/uploadProfilePic`,
           fd,
           {
             headers: {
