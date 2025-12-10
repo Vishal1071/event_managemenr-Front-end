@@ -17,7 +17,7 @@ function UserList() {
                 return;
             }
 
-            const res = await axios.get("http://localhost:8080/api/user/getAllUser",
+            const res = await axios.get("https://event-management-backend-5xoa.onrender.com/api/user/getAllUser",
                 {
                     headers: {
                         Authorization: `Bearer ${token}`
